@@ -1,0 +1,713 @@
+/*
+Theme Name:     Kodama Koi Gardens
+Description:    Migration from Wix template
+Template:       Divi
+Version: 1.0
+*/
+
+/*PLEASE NOTE:
+
+I would like to see a well structured Stylesheet using good use of headings and comments any time there is antyhing "hacky" where we are overriding something from parent theme and need to unorthodox styles.  In general, please avoid use of the !important; tag unless absolutely necessary. 
+
+*/
+
+/*################################################*/
+/*-----[BEGIN CHILD THEME]------------------------*/
+/*################################################*/
+
+
+/*------------------------------------------------*/
+/*-----[BEGIN SECTION (e.g. HEADER STYLES)]-------*/
+/*------------------------------------------------*/
+
+
+
+
+/*------------------------------------------------*/
+/*-----[ENDSECTION (e.g. HEADER STYLES)]-------*/
+/*------------------------------------------------*/
+.et-fixed-header #top-menu a {
+color:rgba(255,255,255,1) !important;
+font-color:rgba(255,255,255,1) !important;
+
+}
+
+
+
+.et_header_style_left #et-top-navigation nav > ul > li > a, .et_header_style_split #et-top-navigation nav > ul > li > a {
+    color: white;
+}
+#main-header, #main-header .nav li ul, .et-search-form, #main-header .et_mobile_menu {
+    background-color: #C70025 !important;
+    color:white !important;
+}
+div.et_pb_slide.et_pb_slide_with_image.et_pb_bg_layout_light.et_pb_media_alignment_center.et_pb_slide_0.et-pb-active-slide {
+    opacity: 0.7 !important;
+    background: white !important;
+}
+div.et_pb_slide.et_pb_slide_with_image.et_pb_bg_layout_light.et_pb_media_alignment_center.et_pb_slide_1.et-pb-active-slide {
+ opacity: 0.7 !important;
+    background: white !important;
+}
+div.et_pb_slide.et_pb_slide_with_image.et_pb_bg_layout_light.et_pb_media_alignment_center.et_pb_slide_2.et-pb-active-slide {
+ opacity: 0.7 !important;
+    background: white !important;
+}
+div.et_pb_slide.et_pb_slide_with_image.et_pb_bg_layout_light.et_pb_media_alignment_center.et_pb_slide_3.et-pb-active-slide {
+ opacity: 0.7 !important;
+    background: white !important;
+}
+div.et_pb_slide.et_pb_slide_with_image.et_pb_bg_layout_light.et_pb_media_alignment_center.et_pb_slide_4.et-pb-active-slide {
+ opacity: 0.7 !important;
+    background: white !important;
+}
+div.et_pb_slide.et_pb_slide_with_image.et_pb_bg_layout_light.et_pb_media_alignment_center.et_pb_slide_5.et-pb-active-slide {
+ opacity: 0.7 !important;
+    background: white !important;
+}
+div.et_pb_slide.et_pb_slide_with_image.et_pb_bg_layout_light.et_pb_media_alignment_center.et_pb_slide_6.et-pb-active-slide {
+ opacity: 0.7 !important;
+    background: white !important;
+}
+.et_pb_slide_image img {
+    border: 2px solid grey;
+}
+h1, h2, h3, h4, h5, h6 {
+    padding-bottom: 5px;
+}
+#top-menu li li a {
+    width: 200px;
+    padding: 6px 20px;
+    color: white;
+}
+/*removed by andrew 
+.et_portfolio_image img {
+    max-height: 375px !important;
+    height: 375px !important;
+}*/
+/* Change columns from 4-3 */
+
+/*----------------------------------------
+---------Begin Roger's Styles-------------
+--------------------------------------------*/
+
+/* bid countdown on koi shop page */
+
+span.time-left {
+color: #000;
+}
+
+span.countdown_section {
+color: #000;
+}
+
+@media (max-width:768px) {
+span.countdown_section {
+    width: 36.5%;
+}
+}
+
+/*portfolio styles */
+
+.et_overlay:hover {
+background: rgba(255, 255, 255, 0.3);
+border: 2px solid #c70025;
+}
+span.winning {
+z-index:5;
+}
+.et_pb_filterable_portfolio .et_pb_portfolio_filters li a {
+border: 1px solid #c70025;
+}
+.et_project_meta_title {
+font-size:120%;
+}
+
+.et_pb_filterable_portfolio .et_pb_portfolio_filters li a.active {
+background-color: #ddd;
+    font-weight: 600;
+}
+
+.et_pb_portfolio_filter:hover {
+background-color: #ddd; 
+}
+
+/* footer design styles */
+
+#et-footer-nav {
+background-color: #C70025;
+}
+#et-footer-nav a {
+color: #fff;
+}
+
+/* header text width increase - for homepage */
+
+.et_pb_fullwidth_header .et_pb_fullwidth_header_container.center .header-content {
+width: 90%;
+max-width: 1100px;
+}
+
+/* gravity forms submit button - koi champ */
+
+input#gform_submit_button_2 {
+    font-size: 1.4em;
+}
+
+/* sidebar design */
+
+ul {
+list-style: inherit;
+}
+
+.et_pb_widget a {
+color: #2ea3f2 }
+
+/* removing categories in menu 
+
+li.cat-item.cat-item-359,li.cat-item.cat-item-361,li.cat-item.cat-item-1 {
+display:none
+}
+*/
+
+li.cat-item.cat-item-12,li.cat-item.cat-item-1 {
+display: none;
+}
+
+/* footer links */
+
+#footer-widgets .footer-widget li {
+list-style: none;
+}
+
+#footer-widgets .footer-widget a {
+color: #2ea3f2 }
+
+
+/* logo resize - w/ media queries and header updates */
+
+@media (max-width: 980px){
+.et_header_style_left #logo {
+    max-width: 70%;
+}
+#et_top_search {
+display:none;
+}
+}
+@media only screen and (min-width: 981px){
+#logo {
+    max-height: 80%;
+}
+}
+
+/* Custom CSS found 
+
+.et_pb_post a img {
+height: auto;
+float: left;
+width: 250px;
+left: 0;
+padding-right: 14px;
+}
+
+@media only screen and (max-width: 980px) {
+.et_pb_post a img {
+float:none;
+width:100%;
+height: 300px;
+}
+}
+*/
+
+
+/*----------------------------------------
+---------Begin ANdrew's Styles-------------
+--------------------------------------------*/.
+.pagination a {
+    background-color: red;
+    padding: 12px 20px;
+    border-radius: 6px;
+    color: #fff;
+}
+
+/*Project taxonomy Pages */
+.tax-project_category article {
+    clear: left;
+    margin-bottom: 25px;
+    float: left;
+}
+.tax-project_category article:after {
+content:'';
+clear:both;
+}
+.tax-project_category article.type-project.has-post-thumbnail img {
+    width: 200px;
+    float: left;
+    margin-right: 20px;
+}
+
+/*Single Project page styles*/
+.single-project .has-post-thumbnail img {
+    max-width: 47%;
+padding-right:3%;
+}
+
+.single-project .entry-content {
+    float: right;
+max-width: 50%;
+}
+
+.no-padding {
+padding: 0px !important;
+}
+/*---homepage ---*/
+.et_pb_row et_pb_row_4 .et_pb_main_blurb_image {
+margin-bottom:10px;
+}
+/*---Locations Pages ---*/
+
+.circle-blurb .et_pb_main_blurb_image img {
+border-radius:50%;
+border:4px solid #C70025;
+box-shadow:4px 4px rgba(0, 0, 0, 0.12);
+}
+
+.circle-blurb .et_pb_blurb_container {
+background: rgba(247, 245, 245, 0.85);
+    padding: 35px 18px;
+}
+
+.circle-blurb.et_pb_blurb h4 a {
+    text-decoration: none;
+    font-size: 1.2em;
+    line-height: 1.5em;
+    font-weight: 600;
+color: #C70025;
+}
+.store-header  h1, 
+.store-header .et_pb_fullwidth_header_subhead {
+    font-size: 28px;
+/*color: #C70025 !important;*/
+}
+
+.store-header-logo {
+text-align: center;
+padding:1% 0px;
+}
+
+.newsletter-cta span.newsletter-heading {
+font-size: 1.75em;
+}
+
+
+ 
+.newsletter-cta   .gform_footer {
+    display: inline-block;
+    padding: 0.85em 0 0.625em;
+    width: 20%;
+clear:none !important;
+    float: left;
+
+}
+ 
+.newsletter-cta .gform_body {
+    display: inline-block;
+    float: left;
+    width: 80%;
+}
+.newsletter-cta  input#gform_submit_button_1 {
+    background-color: #F4C81F !important;
+    color: #fff !important;
+    text-shadow: none !important;
+    padding: 10px 40px!important;
+    box-shadow:0px 2px rgb(236, 177, 109);
+    border-radius: 3px;
+    border: none;
+    font-size: 1.5em;
+    margin-top: 2px;
+}
+/*Homepage Styles*/
+.home-newsletter-cta {
+    background: url('/wp-content/uploads/2016/03/newsletter-sign-up.jpg');
+    background-size: cover;
+    padding: 56px 5px 20px;
+    display: inline-block;
+    min-height: 340px;
+    background-repeat: no-repeat !important;
+}
+.home-newsletter-cta #cta-description {
+    clear: both;
+    max-width: 90%;
+    margin: 0px auto;
+    text-align: center;
+
+}
+.home-newsletter-cta  .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield span.name_first, .home-newsletter-cta  .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield span.name_last, .home-newsletter-cta  .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield span.name_middle  {
+padding-top:0px !important;
+}
+.home-newsletter-cta .gform_wrapper {
+    float: left;
+    display: block;
+    margin: 10px 25px;
+}
+.home-newsletter-cta  .gform_footer {
+    display: inline-block;
+    padding: 0.85em 0 0.625em;
+    width: 20%;
+clear:none !important;
+    float: left;
+
+}
+ 
+.home-newsletter-cta .gform_body {
+    display: inline-block;
+    float: left;
+    width: 75%;
+}
+.home-newsletter-cta input#gform_submit_button_1 {
+    background-color: #F4C81F !important;
+    color: #fff !important;
+    text-shadow: none !important;
+    padding: 10px 20px!important;
+    box-shadow: 0px 2px rgb(224, 246, 64);
+    border-radius: 3px;
+    border: none;
+    font-size: 1.25em;
+    margin-top: 2px;
+}
+@media all and (max-width: 1405px) {
+
+.store-header-logo img {
+    max-height: 115px !important;
+}
+.store-header-logo {
+text-align: center;
+padding:15px 0px ;
+}
+.home-newsletter-cta #cta-description {
+    font-size: .9em;
+}
+.home-newsletter-cta {
+    background: url('/wp-content/uploads/2016/03/newsletter-sign-up.jpg');
+    background-size: cover;
+    padding: 30px 5px 20px;
+}
+}
+@media (max-width: 980px) {
+
+.home-newsletter-cta .gform_body {
+width:80%;
+}
+.home-newsletter-cta .gform_wrapper {margin:10px 55px;}
+
+.post-390 .et_pb_section_1 {
+    background-image: none;
+}
+}
+@media (max-width:768px) {
+.home-newsletter-cta {
+background-size:contain;
+padding:13px 5px;
+}
+.home-newsletter-cta h3 {
+font-size:17px;
+}
+
+.home-newsletter-cta .gform_wrapper {margin:10px 15px;}
+
+.home-newsletter-cta .gform_body , .home-newsletter-cta  .gform_footer{
+width:100%;
+float:none;
+}
+.home-newsletter-cta input#gform_submit_button_1 {
+    width: 100%;
+}
+}
+/*------------------------------------------
+-------Begin Lea Ann's Styles for FAQs------
+--------------------------------------------*/
+
+.qafp-faq {
+    background: #E1DDDD;
+    padding: 12px;
+    border: 2px solid #ccc;
+    margin-bottom: 12px;
+}
+
+.qafp-faq a {
+color: #C70025;
+}
+
+.qafp-faq-answer p:first-of-type {
+    font-size: 1.3em;
+    font-weight: 700;
+    padding: 12px;
+    font-style: italic;
+    line-height: 22px;
+}
+
+.qafp-faqs a.comment-reply-link.et_pb_button {
+    border: none;
+    font-size: inherit;
+}
+/*Header Nav Styles for Auction and Wholesale (AR)*/
+
+
+
+.page-id-27382 span#et-info-email {
+    display: inline;
+}
+
+.page-id-27382 #et-info-email:before{
+    position: relative;
+    top: 2px;
+    margin-right: 2px;
+    content: "\e090";
+    display: inline;
+
+}
+
+.page-id-27382 #et-info-phone {
+display:none;
+}
+span#et-info-email {
+    display: none;
+}
+#et-info-email:before {
+    display: none;
+}
+li#menu-item-28326 a,li.menu-item.menu-item-type-custom.menu-item-object-custom.menu-item-28325 a, li.menu-item.menu-item-type-custom.menu-item-object-custom.menu-item-28327{
+    font-family: "ETmodules" !important;
+}
+/*hide wholesale menu on rest of site*/
+ul#et-secondary-nav {
+display:none;
+visibility: hidden;
+}
+.page-id-27382 ul#et-secondary-nav, .page-id-27504 ul#et-secondary-nav, .page-id-1096 ul#et-secondary-nav{
+display: initial;
+visibility: visible;
+}
+.mobile_nav .et_mobile_menu li:nth-child(n+5),.page-id-27382 .mobile_nav .et_mobile_menu li:nth-of-type(2), .page-id-27382 .mobile_nav .et_mobile_menu li:nth-of-type(3), .page-id-27382 .mobile_nav .et_mobile_menu li:nth-of-type(4)  {
+display:none;
+}
+.page-id-27382 .mobile_nav .et_mobile_menu li:nth-child(n+5) {
+display:initial;
+visibility: visible;
+}
+.page-id-27382 nav#top-menu-nav, .page-id-27504 nav#top-menu-nav, .page-id-1096 nav#top-menu-nav  {/*hide auction menu on wholesale sign-up*/
+    visibility:hidden;
+
+}
+/*Hide Wholesale Widgets*/
+div#text-2,div#text-11, div#text-12 {
+display: none;
+visibility: hidden;
+}
+
+.page-id-27382 div#text-2, .page-id-27382 div#text-11,.page-id-27382 div#text-12{
+display: block;
+visibility: visible;
+}
+.page-id-27382 div#text-3, .page-id-27382 div#nav_menu-7, .page-id-27382 div#text-4{
+display: none;
+visibility: hidden;
+}
+
+/* Jeff's styles for the hero
+REMOVED by AR
+body.et_non_fixed_nav.et_transparent_nav.et_secondary_nav_enabled #page-container header#main-header,
+body.et_fixed_nav.et_secondary_nav_enabled #page-container header#main-header{
+	top: 0;
+}
+
+body.admin-bar.et_non_fixed_nav.et_transparent_nav.et_secondary_nav_enabled #page-container header#main-header,
+body.admin-bar.et_fixed_nav.et_secondary_nav_enabled #page-container header#main-header {
+	top: 32px;
+}
+ */
+.kkf-overlay {
+	background: rgba(0, 0, 0, 0.6);
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	display: block;
+	z-index: 0;
+	max-width: none;
+}
+
+.et_pb_section_0 {
+	position: relative;
+}
+
+#form {
+	position: relative;
+	z-index: 1;
+}
+
+#form .et_pb_text_2.et_pb_text {
+	color: #fff !important;
+}
+
+#form .gform_footer input[type=submit] {
+	border: 0;
+	background: #006eff;
+	color: #fff;
+	padding: 20px 35px;
+	font-size: 1.5em;
+	transition: all 0.3s;
+	cursor: pointer;
+}
+
+#form .gform_footer input[type=submit]:hover,
+#form .gform_footer input[type=submit]:focus,
+#form .gform_footer input[type=submit]:active {
+	background: #003780;
+}
+
+/* Jeff's styles for mobile */
+
+.mobile_nav .mobile_menu_bar:before {
+	color: #fff;
+}
+
+.mobile_nav .et_mobile_menu li {
+	list-style-type: none;
+}
+
+.mobile_nav .et_mobile_menu li a {
+	color: #fff;
+	background: none;
+	cursor: pointer;
+}
+
+.et_hide_mobile_logo #main-header .logo_container {
+	display: block;
+	opacity: 1;
+}
+
+/* Jeff's general styles */
+
+.et_pb_fullwidth_header .header-content h1 {
+	line-height: 1.2;
+}
+
+.et_pb_section .et_pb_fullwidth_header .et_pb_fullwidth_header_scroll {
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+#form .et_pb_text_1.et_pb_text {
+	margin-top: 50px !important;
+}
+
+#form .et_pb_text_2.et_pb_text {
+	margin: 50px 0 !important;
+}
+
+#form .et_pb_text_2.et_pb_text p {
+	line-height: 1.5;
+	font-size: 16px;
+	letter-spacing: normal;
+	font-weight: 300;
+}
+
+#form .et_pb_text hr {
+	border-color: rgba(255, 255, 255, 0.2);
+	margin: 20px 0;
+}
+
+.et_pb_section .et_pb_text h2 {
+	line-height: 1.2;
+}
+
+/*----------------------------------------
+---------Begin Ian's Product Page Styles----
+--------------------------------------------*/
+
+section.related.products {
+clear: both;
+float: left;
+width: 100%;
+}
+.auction-condition {
+display:none;
+}
+/*Add style to compleded auction items */
+li#auction_complete span.et_overlay,  #auction_complete img.attachment-shop_single.size-shop_single.wp-post-image{
+    opacity: .75 !important;
+    background: rgba(10, 10, 10, 0.9);
+    z-index: 3;
+}
+#auction_complete .zoomImg {
+display:none !important;
+}
+#auction_complete .woocommerce-product-gallery__image.flex-active-slide {
+    position: relative;
+}
+li#auction_complete span.et_overlay:before,  #auction_complete .woocommerce-product-gallery__image.flex-active-slide:before {
+    content: 'SOLD';
+    color:#c70025;
+    z-index: 4;
+    opacity: 1;
+    position: absolute;
+    top: 50%;
+    left: 36%;
+    font-size: 32px;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+    font-family: sans-serif !important;
+}
+
+div.auction-time {
+border: 2px dashed #C70025;
+border-radius: 8px;
+margin: 10px 0px;
+padding: 0px 10px;
+font-weight: bold;
+}
+.posted_in a {
+    color: #2ea3f2;
+}
+
+.woocommerce .quantity input.qty, .woocommerce-page .quantity input.qty, .woocommerce #content .quantity input.qty, .woocommerce-page #content .quantity input.qty, .woocommerce-cart table.cart td.actions .coupon .input-text {
+background-color: #666 !important;
+}
+
+.woocommerce .quantity .plus, .woocommerce-page .quantity .plus, .woocommerce #content .quantity .plus, .woocommerce-page #content .quantity .plus, .woocommerce .quantity .minus, .woocommerce-page .quantity .minus, .woocommerce #content .quantity .minus, .woocommerce-page #content .quantity .minus {
+color: #2ea3f2 !important; 
+border-color: #666 !important;
+border-radius: 3px !important;
+}
+
+.woocommerce #respond input#submit.alt.disabled, .woocommerce #respond input#submit.alt.disabled:hover, .woocommerce #respond input#submit.alt:disabled, .woocommerce #respond input#submit.alt:disabled:hover, .woocommerce #respond input#submit.alt:disabled[disabled], .woocommerce #respond input#submit.alt:disabled[disabled]:hover, .woocommerce a.button.alt.disabled, .woocommerce a.button.alt.disabled:hover, .woocommerce a.button.alt:disabled, .woocommerce a.button.alt:disabled:hover, .woocommerce a.button.alt:disabled[disabled], .woocommerce a.button.alt:disabled[disabled]:hover, .woocommerce button.button.alt.disabled, .woocommerce button.button.alt.disabled:hover, .woocommerce button.button.alt:disabled, .woocommerce button.button.alt:disabled:hover, .woocommerce button.button.alt:disabled[disabled], .woocommerce button.button.alt:disabled[disabled]:hover, .woocommerce input.button.alt.disabled, .woocommerce input.button.alt.disabled:hover, .woocommerce input.button.alt:disabled, .woocommerce input.button.alt:disabled:hover, .woocommerce input.button.alt:disabled[disabled], .woocommerce input.button.alt:disabled[disabled]:hover {
+background-color: #666;
+}
+
+@media (min-width:768px) {
+div.woocommerce-product-gallery.woocommerce-product-gallery--with-images.images {
+width: 35% !important;
+}
+div.summary.entry-summary {
+width: 61% !important;
+}
+}
+
+/*** Simple Checkout Next Button Fix ***/
+.button#wsc-main:hover {
+background-color: #1297d2 !important;
+cursor: pointer;
+}
+
+/*** Shop Pages Product & Price Font Sizes ***/
+.woocommerce ul.products li.product .woocommerce-loop-product__title {
+font-size: 1.5em;
+}
+.woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price {
+font-size: 1.3em !important;
+color: #2ea3f2 !important;
+}
+
+

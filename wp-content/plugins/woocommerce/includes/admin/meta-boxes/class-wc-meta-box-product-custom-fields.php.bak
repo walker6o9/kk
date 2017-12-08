@@ -1,0 +1,155 @@
+<?php
+/**
+ * Product Short Description
+ *
+ * Replaces the standard excerpt box.
+ *
+ * @author      WooThemes
+ * @category    Admin
+ * @package     WooCommerce/Admin/Meta Boxes
+ * @version     2.1.0
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+} //https://developer.wordpress.org/reference/functions/add_meta_box/
+
+/**
+ * WC_Meta_Box_Product_Custom_Fields Class.
+ */
+class WC_Meta_Box_Product_Custom_Fields {
+
+	/**
+	 * Output the metabox.
+	 *
+	 * @param WP_Post $post
+	 */
+	public static function output( $post ) {
+
+	    // Add custom fields...
+
+	    // Text Field
+		woocommerce_wp_text_input( 
+			array( 
+				'id'          => 'wc_custom_breeder', 
+				'label'       => __( 'Breeder', 'woocommerce' ), 
+				'placeholder' => 'breeder',
+				'desc_tip'    => 'true',
+				'description' => __( 'Enter field breeder value here.', 'woocommerce' ) 
+			)
+		);
+		
+		
+		// Set default value if it is available in database...
+		$sex = get_post_meta( $post->ID, 'wc_custom_sex', true );
+		if(!in_array($sex, array('male','female', unknown))){
+		  $sex = 'male';   
+		}
+		// Radio
+		woocommerce_wp_radio( 
+			array( 
+				'id'            => 'wc_custom_sex', 
+				'wrapper_class' => 'wc_custom_sex_wrapper', 
+				'label'         => __('Sex', 'woocommerce' ),
+				'options' => array(
+					'male'   => __( 'Male', 'woocommerce' ),
+					'female'   => __( 'Female', 'woocommerce' ),
+					'unknown'   => __( 'Unknown', 'woocommerce' ),
+				),
+			    'value'         => __($sex, 'woocommerce' ),
+				//'description'   => __( 'Please choose sex options.', 'woocommerce' )
+			)
+		);
+
+		// Text Field
+		woocommerce_wp_text_input( 
+			array( 
+				'id'          => 'wc_custom_born_in', 
+				'label'       => __( 'Born In', 'woocommerce' ), 
+				//'placeholder' => __('YYYY-MM-DD',  'woocommerce'),
+				'placeholder' => __('YYYY',  'woocommerce'),
+				'desc_tip'    => 'true',
+				'description' => __( 'Enter the custom value here.', 'woocommerce' ),
+				//'class'       => 'date-picker',
+				/*'custom_attributes' => array(
+					'pattern' => apply_filters( 'woocommerce_date_input_html_pattern', '[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])' ),
+				),*/
+			)
+		);
+
+		// Text Field
+		woocommerce_wp_text_input( 
+			array( 
+				'id'          => 'wc_custom_size', 
+				'label'       => __( 'Size', 'woocommerce' ), 
+				'placeholder' => 'size',
+				'desc_tip'    => 'true',
+				'description' => __( 'Enter the size value here.', 'woocommerce' ) 
+			)
+		);
+
+		// Text Field
+		woocommerce_wp_text_input( 
+			array( 
+				'id'          => 'wc_custom_variety', 
+				'label'       => __( 'Variety', 'woocommerce' ), 
+				'placeholder' => 'variety',
+				'desc_tip'    => 'true',
+				'description' => __( 'Enter the variety value here.', 'woocommerce' ) 
+			)
+		);
+
+		// Text Field
+		woocommerce_wp_text_input( 
+			array( 
+				'id'          => 'wc_custom_estimate_time', 
+				'label'       => __( 'Estimated value', 'woocommerce' ), 
+				'placeholder' => 'estimated value',
+				'desc_tip'    => 'true',
+				'description' => __( 'Enter the estimate time here.', 'woocommerce' ) 
+			)
+		);
+		
+	}
+
+	/**
+	 * Save meta box data.
+	 *
+	 * @param int $post_id
+	 * @param WP_Post $post
+	 */
+	public static function save( $post_id, $post ) {
+		global $wpdb;
+
+		// Text Field
+		$woocommerce_text_field = $_POST['wc_custom_breeder'];
+		if( !empty( $woocommerce_text_field ) )
+			update_post_meta( $post_id, 'wc_custom_breeder', esc_attr( $woocommerce_text_field ) );
+		
+		// Number Field
+		$woocommerce_number_field = $_POST['wc_custom_sex'];
+		if( !empty( $woocommerce_number_field ) )
+			update_post_meta( $post_id, 'wc_custom_sex', esc_attr( $woocommerce_number_field ) );
+		
+		// Textarea
+		$woocommerce_textarea = $_POST['wc_custom_born_in'];
+		if( !empty( $woocommerce_textarea ) )
+			update_post_meta( $post_id, 'wc_custom_born_in', esc_html( $woocommerce_textarea ) );
+		
+		// Select
+		$woocommerce_select = $_POST['wc_custom_size'];
+		if( !empty( $woocommerce_select ) )
+			update_post_meta( $post_id, 'wc_custom_size', esc_attr( $woocommerce_select ) );
+	
+		// Hidden Field
+		$woocommerce_hidden_field = $_POST['wc_custom_variety'];
+		if( !empty( $woocommerce_hidden_field ) )
+			update_post_meta( $post_id, 'wc_custom_variety', esc_attr( $woocommerce_hidden_field ) );
+
+		// Hidden Field
+		$woocommerce_hidden_field = $_POST['wc_custom_estimate_time'];
+		if( !empty( $woocommerce_hidden_field ) )
+			update_post_meta( $post_id, 'wc_custom_estimate_time', esc_attr( $woocommerce_hidden_field ) );
+
+	}
+}

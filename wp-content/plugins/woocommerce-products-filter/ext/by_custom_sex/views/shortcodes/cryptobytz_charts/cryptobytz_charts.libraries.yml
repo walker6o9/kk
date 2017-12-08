@@ -1,0 +1,61 @@
+# Libraries defind in the module
+cryptobytz_charts_highcharts:
+  version: 4.2.7
+  js:
+    /libraries/highcharts/js/highcharts.js: {}
+cryptobytz_charts_high3dcharts:
+  version: 4.2.7
+  js:
+    /libraries/highcharts/js/highcharts-3d.js: {}
+cryptobytz_charts_highmorecharts:
+  version: 4.2.7
+  js:
+    /libraries/highcharts/js/highcharts-more.js: {}
+cryptobytz_charts_hightchartsdata:
+  version: 4.2.7
+  js:
+    /libraries/highcharts/js/modules/data.js: {}
+cryptobytz_charts_highchartsfunnel:
+  version: 4.2.7
+  js:
+    /libraries/highcharts/js/modules/funnel.js: {}
+cryptobytz_charts_highheatmap:
+  version: 4.2.7
+  js:
+    /libraries/highcharts/js/modules/heatmap.js: {}
+cryptobytz_charts_highnodata:
+  version: 4.2.7
+  js:
+    /libraries/highcharts/js/modules/no-data-to-display.js: {}
+cryptobytz_charts_highsolidgauge:
+  version: 4.2.7
+  js:
+    /libraries/highcharts/js/modules/solid-gauge.js: {}
+cryptobytz_charts_treemap:
+  version: 4.2.7
+  js:
+    /libraries/highcharts/js/modules/treemap.js: {}
+cryptobytz_charts_exporting:
+  version: 4.2.7
+  js:
+    /libraries/highcharts/js/modules/exporting.js: {}
+cryptobytz_charts_easychartsrender:
+  version: VERSION
+  js:
+    /libraries/easychart/dist/ec.render.min.js: {}
+cryptobytz_charts_custom:
+  version: VERSION
+  js:
+    js/custom.js: {}
+cryptobytz_charts_date:
+  version: VERSION
+  js:
+    js/date.js: {}
+cryptobytz_charts_highstocks:
+  version: VERSION
+  js:
+    js/highstock.js: {}
+cryptobytz_charts_jquery_3_1:
+  version: VERSION
+  js:
+    js/jquery-3.1.1.min.js: {}

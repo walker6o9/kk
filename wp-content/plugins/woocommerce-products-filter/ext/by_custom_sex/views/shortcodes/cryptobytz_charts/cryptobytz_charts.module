@@ -1,0 +1,151 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\block_content\Entity\BlockContent;
+
+
+function cryptobytz_charts_page_attachments(array &$attachments) {
+$current_path = \Drupal::service('path.current')->getPath();
+
+//kint($current_path);
+if($current_path == '/historical-data'){
+   $attachments['#attached']['library'][] = 'cryptobytz_charts/cryptobytz_charts_jquery_3_1';
+   $attachments['#attached']['library'][] = 'cryptobytz_charts/cryptobytz_charts_highstocks';
+   $attachments['#attached']['library'][] = 'cryptobytz_charts/cryptobytz_charts_highcharts';
+   $attachments['#attached']['library'][] = 'cryptobytz_charts/cryptobytz_charts_high3dcharts';
+   $attachments['#attached']['library'][] = 'cryptobytz_charts/cryptobytz_charts_highmorecharts';
+   $attachments['#attached']['library'][] = 'cryptobytz_charts/cryptobytz_charts_hightchartsdata';
+   $attachments['#attached']['library'][] = 'cryptobytz_charts/cryptobytz_charts_highchartsfunnel';
+   $attachments['#attached']['library'][] = 'cryptobytz_charts/cryptobytz_charts_highheatmap';
+   $attachments['#attached']['library'][] = 'cryptobytz_charts/cryptobytz_charts_highnodata';
+   $attachments['#attached']['library'][] = 'cryptobytz_charts/cryptobytz_charts_highsolidgauge';
+   $attachments['#attached']['library'][] = 'cryptobytz_charts/cryptobytz_charts_treemap';
+   $attachments['#attached']['library'][] = 'cryptobytz_charts/cryptobytz_charts_exporting';
+   $attachments['#attached']['library'][] = 'cryptobytz_charts/cryptobytz_charts_easychartsrender';
+   $attachments['#attached']['library'][] = 'cryptobytz_charts/cryptobytz_charts_date';
+   $attachments['#attached']['library'][] = 'cryptobytz_charts/cryptobytz_charts_custom';
+}
+
+  /*// Conditionally attach an asset to the page.
+  if (!\Drupal::currentUser()->hasPermission('may pet kittens')) {
+    $attachments['#attached']['library'][] = 'core/jquery';
+  }*/
+}
+
+
+/**
+ * Getting Bitcoin Data
+ **/
+
+
+function getbitcoincharts(){
+  $coin_api = 'https://api.bitfinex.com/v1/stats/btcusd';
+
+ try{
+
+  $result = \Drupal::httpClient()->get($coin_api, array('timeout' => 600,'headers' => array('Accept' => 'application/json')));
+  $get_data = (string) $result->getBody();
+
+  if (empty($get_data)) {
+    return FALSE;
+  }
+
+  $dec_json = json_decode($get_data);
+
+  return $dec_json;
+  //kint
+
+
+ }catch(RequestException $e)
+ {
+  return false;
+ }
+
+
+}
+
+/**
+ * hook_form_alter(&$form, FormStateInterface $form_state, $form_id)
+ **/
+
+
+function cryptobytz_charts_form_alter(&$form, FormStateInterface $form_state, $form_id){
+  if($form_id == 'block_content_charts_to_profile_form' || $form_id == 'block_content_charts_to_profile_edit_form'){
+    foreach (array_keys($form['actions']) as $action) {
+        if ($action != 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {
+          $form['actions'][$action]['#submit'][] = 'cryptobytz_charts_submit';
+        }
+    }
+
+
+  }
+}
+
+
+//On Chart's Block Submit
+function cryptobytz_charts_submit(array &$form, FormStateInterface $form_state){
+  //Check which Currency User has Selected
+  $sel_currency = $form_state->getValue('field_select_currency')[0]['target_id'];
+
+  $charts_data = $form_state->getValue('field_cha')[0]['container'];
+
+  $block = $form_state->getFormObject()->getEntity();
+
+  $bid = $block->id();
+  $load_block = BlockContent::load($bid);
+
+
+  if(!empty($sel_currency)){
+    //In case the user selects a Bitcoin Currency
+    if($sel_currency == 66){
+    $btc_stats = getbitcoincharts();
+
+    $csv = "Volume,Time \n";
+
+
+
+      foreach($btc_stats as $k => $v){
+        $csv .= $v->volume.','.$v->period."\n";
+      }
+//       $csv_handler = fopen ('csvfile.csv','w');
+//       fwrite ($csv_handler,$csv);
+//       fclose ($csv_handler);
+
+
+    $get_curr_time = time();
+
+
+    $curr_uid = \Drupal::currentUser()->id();
+    //print($get_curr_time);exit;
+
+    $file_name = 't'.$get_curr_time.'-u'.$curr_uid.'.csv';
+
+    //$file = file_save_data($csv,'public://'.$file_name);
+
+    $saved_filename = $file->filename->value;
+
+//
+//
+//      $chart_field = $load_block->get('field_cha')->getValue();
+//
+//     $chart_field[0]['csv_url']='/sites/default/files/t1511883108-u1.csv';
+//
+//     $load_block->set('field_cha', TRUE);
+
+
+    //$load_block->field_cha->csv_url = '/sites/default/files/'.$saved_filename;
+
+    //$load_block->save();
+
+    }
+  }
+
+
+}
+
+
+
+
+
+
+?>

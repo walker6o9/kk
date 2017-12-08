@@ -1,0 +1,7 @@
+cryptobytz_charts:
+  path: 'historical-data'
+  defaults:
+    _title: 'Bitcoin Historical Data'
+    _controller: '\Drupal\cryptobytz_charts\Controller\HistdataResult::getData'
+  requirements:
+    _permission: 'access content'

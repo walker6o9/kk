@@ -1,0 +1,73 @@
+<?php if (!defined('ABSPATH')) die('No direct access allowed'); ?>
+<div data-css-class="woof_custom_sex_search_container" class="woof_custom_sex_search_container woof_container">
+    <div class="woof_container_overlay_item"></div>
+    <div class="woof_container_inner">
+	<?php
+	global $WOOF;
+
+	if (!isset($view) OR empty($view)) {
+	    $view = (isset($WOOF->settings['by_custom_sex']['view'])) ? $WOOF->settings['by_custom_sex']['view'] : 'drop-down';
+	}
+
+	$request = $WOOF->get_request_data();
+	$woof_custom_sex = '';
+	if (isset($request['woof_custom_sex'])) {
+	    $woof_custom_sex = $request['woof_custom_sex'];
+	}
+	//+++
+	$p = __('Choose sex', 'woocommerce-products-filter');
+
+	if (isset($placeholder) AND ! empty($placeholder)) {
+	    $p = $placeholder;
+	} else {
+	    if (isset($WOOF->settings['by_custom_sex']['placeholder'])) {
+		if (!empty($WOOF->settings['by_custom_sex']['placeholder'])) {
+		    $p = $WOOF->settings['by_custom_sex']['placeholder'];
+		    $p = WOOF_HELPER::wpml_translate(null, $p);
+		    $p = __($p, 'woocommerce-products-filter');
+		}
+	    }
+	}
+
+
+	//***
+	$unique_id = uniqid('woof_custom_sex_search_');
+
+	$custom_sex = array('male' => 'Male', 'female' => 'Female', 'unknown' => 'Unknown');
+	switch ($view) {
+		
+	    case 'checkbox':
+		?>
+		<?php $woof_custom_sex = explode(",", $woof_custom_sex); ?>
+		<<?php echo apply_filters('woof_title_tag', 'h4'); ?>><?php echo $p ?></<?php echo apply_filters('woof_title_tag', 'h4'); ?>>
+		<div data-css-class="woof_checkbox_custom_sexs_container" class="woof_checkbox_custom_sexs_container woof_container">
+		    <div class="woof_container_overlay_item"></div>
+		    <div class="woof_container_inner">
+			<ul class='woof_custom_sexs '>
+			    <?php foreach ($custom_sex as $sex_key => $sex_val): ?>
+	    		    <li>
+	    			<input type="checkbox" class="woof_checkbox_custom_sex" id="woof_checkbox_custom_sex_<?php echo $sex_key ?>" name="woof_custom_sex[]" value="<?php echo $sex_key ?>" <?php if (in_array($sex_key, $woof_custom_sex)) echo "checked"; ?> />&nbsp;&nbsp;<label for="woof_checkbox_custom_sex_<?php echo $sex_key ?>"><?php echo $sex_val ?></label>
+	    		    </li>
+			    <?php endforeach; ?>
+			</ul>
+		    </div>
+		</div>
+		<?php
+		break;
+	    default :
+		?>
+		<<?php echo apply_filters('woof_title_tag', 'h4'); ?>><?php echo 'Sex' ?></<?php echo apply_filters('woof_title_tag', 'h4'); ?>>
+		<select name="woof_custom_sex" class="woof_select woof_show_custom_sex_search <?php echo $unique_id ?>" data-uid="<?php echo $unique_id ?>">
+		    <option value="0"><?php echo $p ?></option>
+		    <?php if (!empty($custom_sex)): ?>
+			<?php foreach ($custom_sex as $sex_key => $sex_val): ?>
+			    <option <?php echo selected($woof_custom_sex, $sex_val); ?> value="<?php echo $sex_key ?>"><?php echo $sex_val ?></option>
+			<?php endforeach; ?>
+		    <?php endif; ?>
+		</select>
+		<?php
+		break;
+	}
+	?>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<?php
+if (!defined('ABSPATH'))
+    die('No direct access allowed');
+
+global $WOOF;
+if (isset($WOOF->settings['by_custom_born_in']) AND $WOOF->settings['by_custom_born_in']['show'])
+{
+    if (isset($WOOF->settings['by_custom_born_in']['title']) AND ! empty($WOOF->settings['by_custom_born_in']['title']))
+    {
+        ?>
+        <!-- <<?php echo apply_filters('woof_title_tag', 'h4'); ?>><?php echo $WOOF->settings['by_custom_born_in']['title']; ?></<?php echo apply_filters('woof_title_tag', 'h4'); ?>> -->
+        <?php
+    }
+		print 'test woof.php'; die;
+    echo do_shortcode('[woof_custom_born_in_filter]');
+}
+
+

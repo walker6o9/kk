@@ -1,0 +1,10 @@
+name: Cryptobytz Charts
+type: module
+description: 'Charts Configurations by using EasyChart'
+package: Custom
+core: 8.x
+hidden: false
+dependencies:
+- drupal:views
+- node
+- easychart
